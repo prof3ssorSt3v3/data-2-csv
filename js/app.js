@@ -49,7 +49,11 @@ const APP = {
   },
   exportData() {
     //insert the header row
-    APP.data.unshift(['First Name', 'Last Name', 'Email', 'Username']);
+    // on click export button multiple time header added again and again.
+    // check if Header not exist in array than push else ignore.
+    if (APP.data[0][0] !== "First Name") {
+      APP.data.unshift(['First Name', 'Last Name', 'Email', 'Username']);
+    }
     //convert array to a string with \n at the end
     let str = '';
     APP.data.forEach((row) => {
